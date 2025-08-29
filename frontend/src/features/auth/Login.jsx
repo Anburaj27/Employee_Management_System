@@ -42,7 +42,7 @@ const Login = () => {
   // ✅ Navigate to Signup page with toast message
   const handleSignupRedirect = () => {
     toast.info('Redirecting to Admin Signup...', { autoClose: 2000 });
-    navigate('/admin/signup'); // Change if you add employee signup separately
+    navigate('/signup'); // Change if you add employee signup separately
   };
 
   return (
