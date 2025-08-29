@@ -1,4 +1,4 @@
-
+// src/routes/AppRoutes.jsx
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AdminSignup from '../features/auth/AdminSignup';
@@ -14,9 +14,9 @@ import PayrollForm from '../features/PayRoll/PayrollForm';
 import PayrollReport from '../features/PayRoll/PayrollReport';
 
 const AppRoutes = () => {
-
   const token = localStorage.getItem('token');
   if (!token) return <Navigate to="/" replace />;
+
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
@@ -24,9 +24,9 @@ const AppRoutes = () => {
         <Routes>
           <Route path="home" element={<Dashboard />} />
           <Route path="edit-employee/:employeeId" element={<EmployeeSignup />} />
-          <Route path='/signup' element={<AdminSignup />} />
-          <Route path='/payroll' element={<PayrollForm />} />
-          <Route path='/payroll/report' element={<PayrollReport />} />
+          <Route path="signup" element={<AdminSignup />} />  {/* ✅ Correct Signup Path */}
+          <Route path="payroll" element={<PayrollForm />} />
+          <Route path="payroll/report" element={<PayrollReport />} />
           <Route path="employee" element={<EmployeeSignup />} />
           <Route path="employee/details" element={<EmployeeList />} />
           <Route path="attendance" element={<AttendanceForm />} />
@@ -40,5 +40,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-
-
