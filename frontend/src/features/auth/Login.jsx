@@ -1,3 +1,4 @@
+// src/pages/Login.jsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest } from '../auth/authSlice';
@@ -34,9 +35,14 @@ const Login = () => {
         user.role === 'admin' ? '/admin/home' : '/Employee/dashboard';
       setTimeout(() => navigate(target, { replace: true }), 2000);
     } else if (error) {
-      toast.error('Email or Password mismatch!', {autoClose: 3000});
+      toast.error('Email or Password mismatch!', { autoClose: 3000 });
     }
   }, [user, token, error, navigate]);
+
+  // ✅ Navigate to Signup page
+  const handleSignupRedirect = () => {
+    navigate('/admin/signup'); // Change route if you want employee signup separately
+  };
 
   return (
     <div className="login-page">
@@ -108,8 +114,15 @@ const Login = () => {
             </button>
           </form>
           
+          {/* ✅ Signup Button with navigate */}
           <div className="login-footer">
-            {/* <p>Need help? <a href="/support">Contact Support</a></p> */}
+            <p>Don’t have an account?</p>
+            <button 
+              onClick={handleSignupRedirect} 
+              className="signup-button"
+            >
+              Sign Up
+            </button>
           </div>
         </div>
       </div>
