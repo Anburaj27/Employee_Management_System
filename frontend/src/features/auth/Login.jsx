@@ -39,9 +39,10 @@ const Login = () => {
     }
   }, [user, token, error, navigate]);
 
-  // ✅ Navigate to Signup page
+  // ✅ Navigate to Signup page with toast message
   const handleSignupRedirect = () => {
-    navigate('/admin/signup'); // Change route if you want employee signup separately
+    toast.info('Redirecting to Admin Signup...', { autoClose: 2000 });
+    navigate('/admin/signup'); // Change if you add employee signup separately
   };
 
   return (
